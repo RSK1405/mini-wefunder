@@ -12,7 +12,15 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 // ── Middleware ──────────────────────────────────────────────────────────────
-app.use(cors({ origin: process.env.FRONTEND_URL || "http://localhost:3000" }));
+const allowedOrigins = [
+  "http://localhost:3000",
+  process.env.FRONTEND_URL
+].filter(Boolean);
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true
+}));
 app.use(express.json());
 
 // Request logger (dev only)
