@@ -1,0 +1,21 @@
+# render.yaml — deploys the backend to Render as a Web Service
+ 
+services:
+  - type: web
+    name: mini-wefunder-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000          # Render always uses 10000 internally; leave this as-is
+      - key: FRONTEND_URL
+        sync: false           # You'll fill this in the Render dashboard after Vercel deploy
+      - key: OPENAI_API_KEY
+        sync: false           # Optional — leave blank to stay in mock mode
+    healthCheckPath: /api/health
+    autoDeploy: true
+ 
