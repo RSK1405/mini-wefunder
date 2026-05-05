@@ -1,50 +1,30 @@
 {
   "pages": {
-    "/_not-found/page": [
-      "static/chunks/webpack-91b2d14d0f678b80.js",
-      "static/chunks/fd9d1056-1f4c605cebad2e8d.js",
-      "static/chunks/23-f3bd2664991ff6e1.js",
-      "static/chunks/main-app-e0dd8f5705ae2e32.js",
-      "static/chunks/app/_not-found/page-a13250d2f63318ba.js"
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
     ],
     "/layout": [
-      "static/chunks/webpack-91b2d14d0f678b80.js",
-      "static/chunks/fd9d1056-1f4c605cebad2e8d.js",
-      "static/chunks/23-f3bd2664991ff6e1.js",
-      "static/chunks/main-app-e0dd8f5705ae2e32.js",
-      "static/css/251cf1d98eef0730.css",
-      "static/chunks/app/layout-aed6e0f65895068a.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
     "/feed/page": [
-      "static/chunks/webpack-91b2d14d0f678b80.js",
-      "static/chunks/fd9d1056-1f4c605cebad2e8d.js",
-      "static/chunks/23-f3bd2664991ff6e1.js",
-      "static/chunks/main-app-e0dd8f5705ae2e32.js",
-      "static/chunks/138-f02d230bd104b4f1.js",
-      "static/chunks/app/feed/page-a7e830460fc09a91.js"
-    ],
-    "/page": [
-      "static/chunks/webpack-91b2d14d0f678b80.js",
-      "static/chunks/fd9d1056-1f4c605cebad2e8d.js",
-      "static/chunks/23-f3bd2664991ff6e1.js",
-      "static/chunks/main-app-e0dd8f5705ae2e32.js",
-      "static/chunks/app/page-ffc06cd4473239c6.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/feed/page.js"
     ],
     "/deal-room/[id]/page": [
-      "static/chunks/webpack-91b2d14d0f678b80.js",
-      "static/chunks/fd9d1056-1f4c605cebad2e8d.js",
-      "static/chunks/23-f3bd2664991ff6e1.js",
-      "static/chunks/main-app-e0dd8f5705ae2e32.js",
-      "static/chunks/138-f02d230bd104b4f1.js",
-      "static/chunks/app/deal-room/[id]/page-4a2ce0be7ce1847c.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/deal-room/[id]/page.js"
     ],
     "/startup/[id]/page": [
-      "static/chunks/webpack-91b2d14d0f678b80.js",
-      "static/chunks/fd9d1056-1f4c605cebad2e8d.js",
-      "static/chunks/23-f3bd2664991ff6e1.js",
-      "static/chunks/main-app-e0dd8f5705ae2e32.js",
-      "static/chunks/138-f02d230bd104b4f1.js",
-      "static/chunks/app/startup/[id]/page-14c4eeed7457c287.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/startup/[id]/page.js"
     ]
   }
 }

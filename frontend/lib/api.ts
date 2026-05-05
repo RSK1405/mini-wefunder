@@ -1,5 +1,12 @@
 // lib/api.ts
-const BASE = process.env.NEXT_PUBLIC_API_URL;
+// Uses relative /api/* paths in production (Next.js rewrites proxy to backend).
+// In dev, NEXT_PUBLIC_API_URL can still override to http://localhost:4000/api
+// if you want to bypass the Next.js dev server proxy.
+
+const BASE =
+  typeof window !== "undefined"
+    ? "/api"   // browser: always relative — hits Next.js rewrite proxy
+    : process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/api"; // SSR fallback
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
   const res = await fetch(`${BASE}${path}`, {
@@ -8,12 +15,11 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
   });
   if (!res.ok) {
     const err = await res.json().catch(() => ({ error: "Unknown error" }));
-    throw new Error(err.error || `HTTP ${res.status}`);
+    throw new Error((err as { error?: string }).error ?? `HTTP ${res.status}`);
   }
   return res.json();
 }
 
-// Startup types
 export interface FinancialData {
   mrr: number;
   growth: string;
@@ -56,25 +62,16 @@ export interface DealRoomAnalysis {
   mock?: boolean;
 }
 
-// API calls
 export const api = {
   startups: {
-    feed: () => request<Startup[]>("/startups?mode=feed"),
-    all: () => request<Startup[]>("/startups"),
-    get: (id: string) => request<Startup>(`/startups/${id}`),
-    like: (id: string) => request<void>(`/startups/${id}/like`, { method: "POST" }),
-    pass: (id: string) => request<void>(`/startups/${id}/pass`, { method: "POST" }),
-    watchlist: () => request<Startup[]>("/startups/user/watchlist"),
+    feed:      ()          => request<Startup[]>("/startups?mode=feed"),
+    all:       ()          => request<Startup[]>("/startups"),
+    get:       (id: string)=> request<Startup>(`/startups/${id}`),
+    like:      (id: string)=> request<void>(`/startups/${id}/like`, { method: "POST" }),
+    pass:      (id: string)=> request<void>(`/startups/${id}/pass`, { method: "POST" }),
+    watchlist: ()          => request<Startup[]>("/startups/user/watchlist"),
   },
-
   dealRoom: {
-  analyze: (id: string) =>
-    request("/api/analyze", {
-      method: "POST",
-      body: JSON.stringify({ startupId: id }),
-    }),
-}
-  /*dealRoom: {
     analyze: (id: string) =>
       request<DealRoomAnalysis>(`/deal-room/${id}/analyze`, { method: "POST" }),
     ask: (id: string, question: string) =>
@@ -82,5 +79,20 @@ export const api = {
         method: "POST",
         body: JSON.stringify({ question }),
       }),
-  },*/
+  },
+  analyze: (startupId: string, description: string) =>
+    request<{
+      summary: string;
+      marketOpportunity: string;
+      keyRisks: string[];
+      bullCase: string;
+      bearCase: string;
+      score: number;
+      verdict: string;
+      mock: boolean;
+      cached: boolean;
+    }>("/analyze", {
+      method: "POST",
+      body: JSON.stringify({ startupId, description }),
+    }),
 };
