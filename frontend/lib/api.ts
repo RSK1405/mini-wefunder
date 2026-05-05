@@ -66,7 +66,15 @@ export const api = {
     pass: (id: string) => request<void>(`/startups/${id}/pass`, { method: "POST" }),
     watchlist: () => request<Startup[]>("/startups/user/watchlist"),
   },
+
   dealRoom: {
+  analyze: (id: string) =>
+    request("/analyze", {
+      method: "POST",
+      body: JSON.stringify({ startupId: id }),
+    }),
+}
+  /*dealRoom: {
     analyze: (id: string) =>
       request<DealRoomAnalysis>(`/deal-room/${id}/analyze`, { method: "POST" }),
     ask: (id: string, question: string) =>
@@ -74,5 +82,5 @@ export const api = {
         method: "POST",
         body: JSON.stringify({ question }),
       }),
-  },
+  },*/
 };
