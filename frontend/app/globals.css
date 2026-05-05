@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- Custom design tokens ---- */
+
+:root {
+  --ink: #0a0a0a;
+  --paper: #ffffff;
+}
+
+/* Dark background like screenshot 2 */
+body {
+  @apply bg-[#0f0f0f] text-white;
+}
+
+/* Optional smoother look */
+* {
+  @apply border-neutral-800;
+}
