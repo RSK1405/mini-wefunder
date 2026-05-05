@@ -1,6 +1,5 @@
 {
-  "/page": "app/page.js",
-  "/feed/page": "app/feed/page.js",
   "/deal-room/[id]/page": "app/deal-room/[id]/page.js",
+  "/feed/page": "app/feed/page.js",
   "/startup/[id]/page": "app/startup/[id]/page.js"
 }
