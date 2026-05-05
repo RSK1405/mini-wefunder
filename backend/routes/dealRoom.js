@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const startups = require("../data/startups");
 const state = require("../data/userState");
+const USE_MOCK = !process.env.OPENAI_API_KEY;
 
 // POST /api/deal-room/:id/analyze — AI analysis of a startup
 router.post("/:id/analyze", async (req, res) => {
