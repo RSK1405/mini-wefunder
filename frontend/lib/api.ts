@@ -69,7 +69,7 @@ export const api = {
 
   dealRoom: {
   analyze: (id: string) =>
-    request("/analyze", {
+    request("/api/analyze", {
       method: "POST",
       body: JSON.stringify({ startupId: id }),
     }),
