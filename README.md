@@ -104,16 +104,16 @@ Feed  ──►  Startup Profile  ──►  AI Deal Room  ──►  Invest or 
 **Prerequisites:** Node.js 18+, npm
 
 ```bash
-# 1. Clone
+#1. Clone
 git clone https://github.com/YOUR_USERNAME/mini-wefunder.git
 cd mini-wefunder
 ```
 
 ```bash
-# 2. Start the backend
+#2. Start the backend
 cd backend
 npm install
-cp .env.example .env     # no edits needed — mock mode works out of the box
+cp .env.example .env   
 npm run dev
 # → API running at http://localhost:4000
 # → AI mode: Mock (no API key required)
@@ -144,7 +144,7 @@ Open [localhost:3000](http://localhost:3000). The feed loads immediately with se
 **Enable real OpenAI (optional)**
 
 ```bash
-# backend/.env
+#backend/.env
 OPENAI_API_KEY=sk-...
 ```
 
