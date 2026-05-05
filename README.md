@@ -75,18 +75,18 @@ Feed  ──►  Startup Profile  ──►  AI Deal Room  ──►  Invest or 
 
 ```
 ┌─────────────────────────────────┐     ┌──────────────────────────────────┐
-│         Next.js Frontend         │     │        Express Backend           │
-│                                  │     │                                  │
-│                                  │     │                                  │
-│  app/feed/page.tsx               │     │  GET  /api/startups?mode=feed    │
-│  app/startup/[id]/page.tsx       │────►│  GET  /api/startups/:id          │
-│  app/deal-room/[id]/page.tsx     │     │  POST /api/startups/:id/like     │
-│                                  │     │  POST /api/startups/:id/pass     │
-│  lib/startups.ts  (shared data)  │     │  POST /api/analyze               │
-│  lib/api.ts       (typed client) │     │                                  │
-│                                  │     │  data/startups.js  (seed data)   │
-│  next.config.js rewrite proxy    │     │  data/userState.js (session)     │
-│  /api/* → backend URL            │     │                                  │
+│         Next.js Frontend        │     │        Express Backend           │
+│                                 │     │                                  │
+│                                 │     │                                  │
+│  app/feed/page.tsx              │     │  GET  /api/startups?mode=feed    │
+│  app/startup/[id]/page.tsx      │────►│  GET  /api/startups/:id          │
+│  app/deal-room/[id]/page.tsx    │     │  POST /api/startups/:id/like     │
+│                                 │     │  POST /api/startups/:id/pass     │
+│  lib/startups.ts  (shared data) │     │  POST /api/analyze               │
+│  lib/api.ts       (typed client)│     │                                  │
+│                                 │     │  data/startups.js  (seed data)   │
+│  next.config.js rewrite proxy   │     │  data/userState.js (session)     │
+│  /api/* → backend URL           │     │                                  │
 └─────────────────────────────────┘     └──────────────────────────────────┘
 ```
 
